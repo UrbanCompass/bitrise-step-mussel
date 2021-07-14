@@ -28,6 +28,8 @@ support_url: https://github.com/UrbanCompass/bitrise-step-mussel/issues
 host_os_tags:
   - osx-10.10
   - ubuntu-16.04
+project_type_tags:
+  - ios
 type_tags:
   - test
 is_requires_admin_user: true
@@ -36,6 +38,3 @@ is_skippable: false
 deps:
   brew:
   - name: git
-toolkit:
-  bash:
-    entry_file: step.sh
