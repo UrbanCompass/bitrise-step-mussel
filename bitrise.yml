@@ -18,9 +18,9 @@ workflows:
         inputs:
         - launch_or_close_mussel: $LAUNCH_OR_CLOSE_MUSSEL
     - script:
-        title: Test Mussel Server
+        title: Test Mussel Step
         description: |-
-          This step runs and launches the Mussel Server on a Bitrise Virtual Machine.
+          This step tests and launches the Mussel Step on Bitrise.
         inputs:
         - content: |
             #!/bin/bash
