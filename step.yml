@@ -46,7 +46,7 @@ toolkit:
 inputs:
   - launch_or_close_mussel: "launch"
     opts:
-      title: "Launch or close Mussel"
+      title: Launch or Close Mussel
       description: |
         Decides whether or not to launch or close the Mussel Server Application.
       is_required: true

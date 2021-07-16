@@ -2,8 +2,6 @@
 
 set -e
 
-echo "This is Mussel"
-
 if [ $launch_or_close_mussel = "launch" ]
 then
     if [ -d "/Users/vagrant/git/build-for-testing/Build/Products/Debug-iphonesimulator/Mussel/Mussel.framework" ]

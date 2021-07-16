@@ -25,7 +25,7 @@ workflows:
         - content: |
             #!/bin/bash
             echo "Launch or Close Mussel:"
-            echo LAUNCH_OR_CLOSE_MUSSEL
+            echo $LAUNCH_OR_CLOSE_MUSSEL
 
   audit-this-step:
     steps:
