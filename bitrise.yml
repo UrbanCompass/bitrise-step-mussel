@@ -4,25 +4,28 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 app:
   envs:
   - BITRISE_STEP_ID: mussel
-  - BITRISE_STEP_VERSION: "0.1.4"
+  - BITRISE_STEP_VERSION: "0.1.5"
   - BITRISE_STEP_GIT_CLONE_URL: https://github.com/UrbanCompass/bitrise-step-mussel.git
   - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
+
+  - LAUNCH_OR_CLOSE_MUSSEL: "launch"
 
 workflows:
   test:
     steps:
+    - path::./:
+        title: Step test
+        inputs:
+        - launch_or_close_mussel: $LAUNCH_OR_CLOSE_MUSSEL
     - script:
-        title: Run Mussel Server
+        title: Test Mussel Step
         description: |-
-          This step runs and launches the Mussel Server on a Bitrise Virtual Machine.
+          This step tests and launches the Mussel Step on Bitrise.
         inputs:
         - content: |
             #!/bin/bash
-            echo "Launching Mussel"
-            mussel_server_dir="/Users/vagrant/git/build-for-testing/Build/Products/Debug-iphonesimulator/Mussel/Mussel.framework"
-            mussel_server_file_path=$mussel_server_dir/MusselServer.app
-            chmod +x $mussel_server_file_path
-            open -a $mussel_server_file_path
+            echo "Launch or Close Mussel:"
+            echo $LAUNCH_OR_CLOSE_MUSSEL
 
   audit-this-step:
     steps:
