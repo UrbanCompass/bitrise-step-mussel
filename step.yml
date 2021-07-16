@@ -38,3 +38,19 @@ is_skippable: false
 deps:
   brew:
   - name: git
+  - name: wget
+
+toolkit:
+  bash:
+    entry_file: step.sh
+
+inputs:
+  - launch_or_close_mussel: "launch"
+    opts:
+      title: "Launch or close Mussel"
+      description: |
+        Decides whether or not to launch or close the Mussel Server Application.
+      is_required: true
+      value_options:
+        - "launch"
+        - "close"
