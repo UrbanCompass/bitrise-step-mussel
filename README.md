@@ -1,6 +1,6 @@
 # Mussel
 
-As of Xcode 14.4, users are able to test Push Notifications via the simulator. Unfortunately, Apple has yet to introduce the ability to leverage this new method within the XCUITest Framework. 
+As of Xcode 12.4, users are able to test Push Notifications via the simulator. Unfortunately, Apple has yet to introduce the ability to leverage this new method within the XCUITest Framework. 
 
 Testing Universal Links can also be an adventure, potentially accumulating lots of extra unwanted time in UI Tests, especially if your team wants to speed up your app's regression progress. Conventional methods resorted to using iMessage or Contacts to open Universal Links which routed to a specific feature within an application. 
 
