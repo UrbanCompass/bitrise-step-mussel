@@ -2,20 +2,12 @@
 
 set -e
 
-if [ $launch_or_close_mussel = "launch" ]
-then
-    if [ -d "/Users/vagrant/git/build-for-testing/Build/Products/Debug-iphonesimulator/Mussel/Mussel.framework" ]
-    then
-        mussel_server_dir="/Users/vagrant/git/build-for-testing/Build/Products/Debug-iphonesimulator/Mussel/Mussel.framework"
-        mussel_server_file_path=$mussel_server_dir/MusselServer.app
-        chmod +x $mussel_server_file_path
-        open -a $mussel_server_file_path
-        echo "Mussel Server Launched"
-    else
-        open -a "MusselServer.app"
-        echo "Mussel Server Launched"
-    fi
-else
-    pkill -x MusselServer
-    echo "Mussel Server Closed"
-fi
+mussel_url="https://github.com/UrbanCompass/Mussel/releases/download/$mussel_version/release.zip"
+temp=$(mktemp -d)
+
+echo "Downloading Mussel server from $mussel_url"
+curl -L --progress-bar $mussel_url > $temp/release.zip
+unzip -o $temp/release.zip -d $temp
+mkdir -p .mussel
+mv $temp/MusselServer $temp/run_server.sh .mussel
+./.mussel/run_server.sh

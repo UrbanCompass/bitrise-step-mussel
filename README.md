@@ -6,18 +6,15 @@ Testing Universal Links can also be an adventure, potentially accumulating lots 
 
 Mussel introduces a quick and simple way to test Push Notifications and Universal Links which route to any specific features within your iOS app.
 
+Checkout the `Mussel` framework for use within your iOS projects: https://github.com/UrbanCompass/Mussel
+
 ##  How It Works:
 
 1. An Engineer triggers XCUITests in XCode manually or through your Continuous Integration platform of choice.
-
 2. Mussel Server boots up along with the iOS Simulator.
-
 3. A Test Case triggers a Push Notification or Universal Link Test Case
-
 4. The Test Case sends a payload containing Push Notification or Universal Link data via POST Request.
-
 5. Server runs respective xcrun simctl command for Push Notifications or Universal Links.
-
 6. The command presents a Push Notification or launches a Universal Link within the iOS Simulator.
 
 ## How to use this Step
@@ -48,36 +45,6 @@ envs:
 - A_SECRET_PARAM_TWO: the value for secret two
 ```
 
-## How to create your own step
-
-1. Create a new git repository for your step (**don't fork** the *step template*, create a *new* repository)
-2. Copy the [step template](https://github.com/bitrise-steplib/step-template) files into your repository
-3. Fill the `step.sh` with your functionality
-4. Wire out your inputs to `step.yml` (`inputs` section)
-5. Fill out the other parts of the `step.yml` too
-6. Provide test values for the inputs in the `bitrise.yml`
-7. Run your step with `bitrise run test` - if it works, you're ready
-
-__For Step development guidelines & best practices__ check this documentation: [https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md](https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md).
-
-**NOTE:**
-
-If you want to use your step in your project's `bitrise.yml`:
-
-1. git push the step into it's repository
-2. reference it in your `bitrise.yml` with the `git::PUBLIC-GIT-CLONE-URL@BRANCH` step reference style:
-
-```
-- git::https://github.com/user/my-step.git@branch:
-   title: My step
-   inputs:
-   - my_input_1: "my value 1"
-   - my_input_2: "my value 2"
-```
-
-You can find more examples of step reference styles
-in the [bitrise CLI repository](https://github.com/bitrise-io/bitrise/blob/master/_examples/tutorials/steps-and-workflows/bitrise.yml#L65).
-
 ## How to contribute to this Step
 
 1. Fork this repository
@@ -94,17 +61,15 @@ in the [bitrise CLI repository](https://github.com/bitrise-io/bitrise/blob/maste
 7. Once you're done just commit your changes & create a Pull Request
 
 
-## Share your own Step
+## How to share this Step
 
 You can share your Step or step version with the [bitrise CLI](https://github.com/bitrise-io/bitrise). If you use the `bitrise.yml` included in this repository, all you have to do is:
 
 1. In your Terminal / Command Line `cd` into this directory (where the `bitrise.yml` of the step is located)
-1. Run: `bitrise run test` to test the step
-1. Run: `bitrise run audit-this-step` to audit the `step.yml`
-1. Check the `share-this-step` workflow in the `bitrise.yml`, and fill out the
+2. Run: `bitrise run test` to test the step
+3. Run: `bitrise run audit-this-step` to audit the `step.yml`
+4. Check the `share-this-step` workflow in the `bitrise.yml`, and fill out the
    `envs` if you haven't done so already (don't forget to bump the version number if this is an update
    of your step!)
-1. Then run: `bitrise run share-this-step` to share the step (version) you specified in the `envs`
-1. Send the Pull Request, as described in the logs of `bitrise run share-this-step`
-
-That's all ;)
+5. Then run: `bitrise run share-this-step` to share the step (version) you specified in the `envs`
+6. Send the Pull Request, as described in the logs of `bitrise run share-this-step`
