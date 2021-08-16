@@ -8,24 +8,13 @@ app:
   - BITRISE_STEP_GIT_CLONE_URL: https://github.com/UrbanCompass/bitrise-step-mussel.git
   - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
 
-  - LAUNCH_OR_CLOSE_MUSSEL: "launch"
-
 workflows:
   test:
     steps:
     - path::./:
         title: Step test
-        inputs:
-        - launch_or_close_mussel: $LAUNCH_OR_CLOSE_MUSSEL
-    - script:
-        title: Test Mussel Step
         description: |-
-          This step tests and launches the Mussel Step on Bitrise.
-        inputs:
-        - content: |
-            #!/bin/bash
-            echo "Launch or Close Mussel:"
-            echo $LAUNCH_OR_CLOSE_MUSSEL
+          Runnning Mussel step tests
 
   audit-this-step:
     steps:
